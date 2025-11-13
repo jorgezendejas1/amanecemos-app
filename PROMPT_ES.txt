@@ -1,99 +1,122 @@
-Crea una aplicación móvil/web para registrar y administrar gastos diarios con Inteligencia Artificial usando Firebase, Google Cloud y Vertex AI.
-Toda la interfaz debe estar en **español** y debe ser **súper intuitiva, rápida y fácil de usar**.
+You are an expert full-stack developer, data scientist, and Firebase architect with over 10 years of experience.  
+Your task is to generate the full application “Amanecemos App”, a personal and business budget manager that integrates Google Cloud and Firebase.
 
 ---
 
-### 🧭 Descripción general
+🌅 GENERAL DESCRIPTION  
+“Amanecemos App” helps users manage daily expenses, categories, and budgets.  
+It includes AI-assisted suggestions, income tracking, and visual summaries of the user’s spending and remaining budget.  
 
-La app permitirá registrar gastos diarios con foto, presupuesto, categorías inteligentes, comentarios y cálculos automáticos.
-El sistema aprenderá de los registros del usuario y clasificará automáticamente los conceptos en categorías y subcategorías con IA.
-
----
-
-### 🧩 Pantallas principales
-
-1. **Inicio (Pantalla de gastos diarios)**
-
-   * Muestra “Amanecimos con” (saldo inicial del día) en el top bar.
-   * En la parte superior, al lado de la fecha, muestra el total gastado del día (fijo).
-   * Cada gasto se agrega hacia abajo (no una hoja por gasto).
-   * Botón “+” antes del campo de texto para agregar nuevos gastos.
-   * Campos:
-
-     * Concepto (texto o detectado por IA si hay foto)
-     * Cantidad gastada
-     * Presupuesto (automático, tomado de la pantalla Presupuesto)
-     * Categoría (detectada automáticamente por IA, con opción de paloma/tache para confirmar o corregir)
-     * Comentarios (campo de texto libre)
-     * Foto del gasto (opcional):
-
-       * Si se sube una imagen, la IA detecta automáticamente concepto y cantidad.
-       * Si la imagen tiene muchos artículos, la IA crea un solo concepto resumido con el total.
-       * Si algo no es correcto, el usuario puede corregirlo manualmente.
-   * Todo cambio se guarda automáticamente en tiempo real.
-
-2. **Presupuesto (pantalla separada)**
-
-   * Aquí el usuario define y edita su presupuesto semanal por categoría.
-   * Las categorías son inteligentes y pueden tener múltiples subcategorías.
-   * Ejemplo: Categoría “Supermercado” → subcategorías: “Tamales”, “Walmart”, “Oxxo”.
-   * Ejemplo: Categoría “Transporte” → subcategorías: “Gasolina”, “Metro”, “Camiones”.
-   * Campos: Categoría, Subcategoría, Presupuesto planeado, Gastado, Restante.
-   * La IA puede sugerir presupuestos iniciales y reajustarlos según comportamiento del usuario.
-   * Si el usuario aprueba una categoría, la IA asigna subcategorías automáticamente (oculto en interfaz, pero guardado en BD).
-
-3. **Resumen (Dashboard)**
-
-   * Gráficas de gastos diarios, semanales, mensuales y anuales.
-   * Comparativas entre categorías.
-   * Exportación de reportes en PDF o Excel.
-
-4. **Anochecemos con (Bottom bar)**
-
-   * Muestra saldo final del día calculado como:
-     `Saldo final = Amanecimos con - Total gastado del día`
+The interface is friendly, modern, and focused on simplicity.  
+It supports Spanish language for all UI labels.
 
 ---
 
-### 🧠 Inteligencia Artificial
+⚙️ MAIN FEATURES
 
-* Usa **Vertex AI + Cloud Vision API**.
-* Detecta conceptos y montos en fotos.
-* Clasifica automáticamente los gastos en categorías/subcategorías inteligentes.
-* Aprende del usuario (machine learning incremental).
-* Si la categoría ya fue aprobada antes, se aplicará automáticamente sin pedir confirmación.
+1. DAILY ENTRY SCREEN  
+- Top bar: “AMANECIMOS CON”  
+- Bottom bar: “ANOCHECEMOS CON”  
+- A button “+” above the text field to add new records.  
+- Fields:  
+  • Type of movement (Expense or Income)  
+  • Category (dropdown)  
+  • Subcategory (auto-filled by AI after approval)  
+  • Description  
+  • Amount (in MXN)  
+  • Date (auto-set to today, editable)  
+  • Photo (optional: AI extracts concept and amount)  
+  • Comments (optional)  
+- When a record is saved, the app updates the remaining budget automatically.  
+- AI learns from user confirmations:  
+  ✅ approved category → auto-applied next time  
+  ❌ rejected → AI offers a new suggestion  
+
+2. BUDGET SCREEN (PRESUPUESTO)  
+- Users can set or edit the available budget for each category.  
+- Each record stores:  
+  • Category name  
+  • Total budget  
+  • Remaining amount  
+  • Date of last modification  
+- AI can update or adjust budgets automatically based on spending patterns.  
+- The user can override these values manually at any time.  
+
+3. INCOME (DEPÓSITOS) HANDLING  
+- Incomes are added from the same “+” button using the same interface.  
+- If the user selects “Income”, the amount is added to the corresponding category budget.  
+- All income transactions are saved in the database for analysis.
+
+4. DATA MANAGEMENT  
+- All records (expenses, incomes, budgets) are stored in Firebase Firestore.  
+- Images or receipts are stored in Firebase Storage.  
+- AI operations (category suggestion, budget adjustment) use Google Cloud Functions + Vertex AI.
+
+5. ANALYTICS & INSIGHTS  
+- Charts for “Top Expenses”, “Remaining Budget by Category”, and “Total Savings”.  
+- AI insights suggesting how to optimize spending or redistribute budgets.
 
 ---
 
-### ⚙️ Backend y funciones técnicas
-
-* Base de datos: **Firestore (Firebase)**
-* Almacenamiento: **Google Cloud Storage**
-* Funciones: **Firebase Cloud Functions (Node.js)**
-* AI: **Vertex AI + Cloud Vision API (Google Cloud)**
-* Sincronización en tiempo real
-* Guardado automático (autosave en cada escritura)
-* Exportación de reportes en PDF, Excel o JSON
-* Generación de dashboards con gráficos interactivos
-* Cálculo de:
-
-  * “Amanecimos con” (saldo inicial del día)
-  * “Anochecemos con” (saldo final del día)
-  * Diferencias de presupuesto por categoría
+🧠 TECH STACK  
+- Frontend: React + Material UI  
+- Backend: Firebase Functions (Node.js)  
+- Database: Firebase Firestore  
+- Storage: Firebase Storage  
+- AI & Automation: Google Cloud Functions + Vertex AI API  
+- Hosting: Firebase Hosting  
+- Authentication (optional): Firebase Auth  
 
 ---
 
-### 💰 Moneda
+📁 PROJECT STRUCTURE  
+/src/components/ → React components  
+/src/screens/ → Main screens (Home, Budget, Analytics)  
+/src/services/ → Firebase + AI logic  
+/functions/ → Google Cloud Functions  
+/public/ → Static files  
 
-Usar siempre **pesos mexicanos (MXN)**.
+---
+
+💾 DATABASE (FIRESTORE COLLECTIONS)  
+1. users  
+   - id, name, email, createdAt  
+2. categories  
+   - id, name, subcategories[], createdBy  
+3. budgets  
+   - id, categoryId, totalBudget, remainingBudget, lastUpdated  
+4. transactions  
+   - id, categoryId, subcategoryId, type (expense/income), description, amount, date, createdBy  
+5. ai_logs  
+   - id, type, input, output, timestamp  
 
 ---
 
-### 💾 Requisitos finales
-
-* Todo debe ser **100% funcional** (nada simulado).
-* Conexión completa con Google Cloud y Firebase.
-* Interfaz moderna, limpia y clara.
-* App totalmente en español.
+📈 AI AUTOMATION LOGIC  
+- When user adds expense → remainingBudget -= amount  
+- When user adds income → remainingBudget += amount  
+- When new category approved → AI auto-generates subcategories  
+- When budgets are exceeded → AI suggests redistribution  
 
 ---
+
+🧩 REQUIREMENTS  
+- Fully responsive UI (mobile-first)  
+- Spanish labels in the interface  
+- Code in English  
+- Offline support (Firestore caching)  
+- Clean visual design with clear feedback  
+
+---
+
+🚀 OUTPUT  
+Generate:  
+1. Full app folder structure  
+2. Example code for each screen (Home, Budget, Analytics)  
+3. Integration with Firebase & Google Cloud  
+4. README.md explaining setup and deployment  
+5. JSON schema for Firestore collections  
+
+Project Name: Amanecemos App  
+Language: English codebase, Spanish interface  
+Currency: MXN  
