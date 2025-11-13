@@ -1,0 +1,99 @@
+Crea una aplicación móvil/web para registrar y administrar gastos diarios con Inteligencia Artificial usando Firebase, Google Cloud y Vertex AI.
+Toda la interfaz debe estar en **español** y debe ser **súper intuitiva, rápida y fácil de usar**.
+
+---
+
+### 🧭 Descripción general
+
+La app permitirá registrar gastos diarios con foto, presupuesto, categorías inteligentes, comentarios y cálculos automáticos.
+El sistema aprenderá de los registros del usuario y clasificará automáticamente los conceptos en categorías y subcategorías con IA.
+
+---
+
+### 🧩 Pantallas principales
+
+1. **Inicio (Pantalla de gastos diarios)**
+
+   * Muestra “Amanecimos con” (saldo inicial del día) en el top bar.
+   * En la parte superior, al lado de la fecha, muestra el total gastado del día (fijo).
+   * Cada gasto se agrega hacia abajo (no una hoja por gasto).
+   * Botón “+” antes del campo de texto para agregar nuevos gastos.
+   * Campos:
+
+     * Concepto (texto o detectado por IA si hay foto)
+     * Cantidad gastada
+     * Presupuesto (automático, tomado de la pantalla Presupuesto)
+     * Categoría (detectada automáticamente por IA, con opción de paloma/tache para confirmar o corregir)
+     * Comentarios (campo de texto libre)
+     * Foto del gasto (opcional):
+
+       * Si se sube una imagen, la IA detecta automáticamente concepto y cantidad.
+       * Si la imagen tiene muchos artículos, la IA crea un solo concepto resumido con el total.
+       * Si algo no es correcto, el usuario puede corregirlo manualmente.
+   * Todo cambio se guarda automáticamente en tiempo real.
+
+2. **Presupuesto (pantalla separada)**
+
+   * Aquí el usuario define y edita su presupuesto semanal por categoría.
+   * Las categorías son inteligentes y pueden tener múltiples subcategorías.
+   * Ejemplo: Categoría “Supermercado” → subcategorías: “Tamales”, “Walmart”, “Oxxo”.
+   * Ejemplo: Categoría “Transporte” → subcategorías: “Gasolina”, “Metro”, “Camiones”.
+   * Campos: Categoría, Subcategoría, Presupuesto planeado, Gastado, Restante.
+   * La IA puede sugerir presupuestos iniciales y reajustarlos según comportamiento del usuario.
+   * Si el usuario aprueba una categoría, la IA asigna subcategorías automáticamente (oculto en interfaz, pero guardado en BD).
+
+3. **Resumen (Dashboard)**
+
+   * Gráficas de gastos diarios, semanales, mensuales y anuales.
+   * Comparativas entre categorías.
+   * Exportación de reportes en PDF o Excel.
+
+4. **Anochecemos con (Bottom bar)**
+
+   * Muestra saldo final del día calculado como:
+     `Saldo final = Amanecimos con - Total gastado del día`
+
+---
+
+### 🧠 Inteligencia Artificial
+
+* Usa **Vertex AI + Cloud Vision API**.
+* Detecta conceptos y montos en fotos.
+* Clasifica automáticamente los gastos en categorías/subcategorías inteligentes.
+* Aprende del usuario (machine learning incremental).
+* Si la categoría ya fue aprobada antes, se aplicará automáticamente sin pedir confirmación.
+
+---
+
+### ⚙️ Backend y funciones técnicas
+
+* Base de datos: **Firestore (Firebase)**
+* Almacenamiento: **Google Cloud Storage**
+* Funciones: **Firebase Cloud Functions (Node.js)**
+* AI: **Vertex AI + Cloud Vision API (Google Cloud)**
+* Sincronización en tiempo real
+* Guardado automático (autosave en cada escritura)
+* Exportación de reportes en PDF, Excel o JSON
+* Generación de dashboards con gráficos interactivos
+* Cálculo de:
+
+  * “Amanecimos con” (saldo inicial del día)
+  * “Anochecemos con” (saldo final del día)
+  * Diferencias de presupuesto por categoría
+
+---
+
+### 💰 Moneda
+
+Usar siempre **pesos mexicanos (MXN)**.
+
+---
+
+### 💾 Requisitos finales
+
+* Todo debe ser **100% funcional** (nada simulado).
+* Conexión completa con Google Cloud y Firebase.
+* Interfaz moderna, limpia y clara.
+* App totalmente en español.
+
+---
