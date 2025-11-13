@@ -1,0 +1,74 @@
+{
+"project": {
+"name": "Amanecemos App",
+"language": "es",
+"currency": "MXN",
+"backend": {
+"database": "Firestore",
+"storage": "Google Cloud Storage",
+"functions": "Firebase Cloud Functions",
+"ai": ["Vertex AI", "Cloud Vision API"]
+},
+"screens": [
+{
+"name": "Inicio",
+"type": "main",
+"fields": [
+"Fecha (automática)",
+"Total gastado del día (fijo en top bar)",
+"Botón + para agregar gasto",
+"Concepto",
+"Cantidad gastada",
+"Categoría (IA con paloma/tache)",
+"Subcategoría (asignada automáticamente por IA)",
+"Presupuesto restante (automático)",
+"Comentarios",
+"Foto del gasto (opcional)"
+],
+"behaviors": [
+"Guardar automáticamente en tiempo real",
+"Clasificación IA de texto y fotos",
+"Auto-sugerencias de categoría",
+"Cálculo de Amanecimos con y Anochecemos con"
+]
+},
+{
+"name": "Presupuesto",
+"type": "config",
+"fields": [
+"Categoría",
+"Subcategoría",
+"Presupuesto semanal",
+"Gastado",
+"Restante"
+],
+"ai_behavior": [
+"Aprendizaje continuo",
+"Autoasignación de subcategorías",
+"Rebalanceo inteligente"
+]
+},
+{
+"name": "Dashboard",
+"type": "summary",
+"features": [
+"Gráficos de barras, pastel y línea",
+"Filtros por día, semana, mes y año",
+"Exportación PDF/Excel",
+"Totales por categoría y subcategoría"
+]
+}
+],
+"bars": {
+"top": "Amanecimos con",
+"bottom": "Anochecemos con"
+},
+"save_policy": "autosave",
+"data_learning": "on",
+"google_cloud": {
+"enabled": true,
+"vertex_ai": true,
+"cloud_vision": true
+}
+}
+}
