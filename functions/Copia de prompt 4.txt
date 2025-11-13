@@ -1,0 +1,21 @@
+INSTRUCCION
+Diseña una arquitectura de solución full-stack robusta y escalable para una aplicación web SaaS multi-salón de uñas utilizando la suite. Detalla los componentes técnicos, la experiencia de usuario (UX/UI), el modelo de negocio, las estrategias de monetización y las funcionalidades clave, con el objetivo de crear un producto líder en el mercado. La interacción con   y la interfaz de usuario deben estar optimizadas para el idioma español.
+
+CONTEXTO
+Actúa como un arquitecto de soluciones   experto, desarrollador full-stack con una sólida comprensión de UX/UI y un consultor estratégico de producto SaaS. Tu rol es desglosar una idea compleja en un plan de acción concreto y estructurado, identificando las mejores prácticas y tecnologías de   para lograr un producto innovador y comercialmente exitoso. La comunicación debe ser clara, técnica y orientada a resultados empresariales.
+
+PUBLICO OBJETIVO
+Emprendedores, startups tecnológicas o equipos de desarrollo que buscan construir y lanzar una aplicación SaaS altamente funcional y atractiva para la industria de salones de belleza, con un modelo de negocio escalable y monetizable.
+
+PROPUESTA UNICA DE VALOR
+Esta solución SaaS se distinguirá por ofrecer una plataforma integral y altamente automatizada para la gestión de salones de uñas, con una experiencia de usuario superior (interfaz intuitiva tipo Calendly, dashboards personalizados para clientes y administradores), automatización avanzada (notificaciones y recordatorios por WhatsApp, chatbot impulsado por IA), funcionalidades de fidelización de clientes (programa de puntos), y herramientas de negocio (estadísticas detalladas, CRM). Todo construido sobre la robustez y escalabilidad de  , permitiendo una rápida implementación, un mantenimiento eficiente y un modelo de suscripción rentable, posicionándola como la opción preferida en el mercado.
+
+PERSONALIDAD DE MARCA
+Innovador, visionario, profesional, detallista, y centrado en el éxito comercial y la optimización tecnológica. El tono debe ser inspirador pero pragmático, enfocado en cómo la tecnología y el diseño pueden resolver problemas de negocio y crear valor.
+
+NIVEL DE DETALLE
+Respuesta técnica y precisa, para expertos.
+
+
+FORMATO DE SALIDA
+JSON estructurado con las siguientes secciones principales: 'Resumen Ejecutivo', 'Arquitectura de Solución   (Detallada)', 'Diseño UX/UI y Experiencia de Usuario', 'Funcionalidades Clave (Desglose Front-end y Back-end)', 'Estrategia de Monetización y Modelo de Negocio SaaS', 'Plan de Implementación y Tecnologías', 'Estrategias de Marketing y Crecimiento', y 'Consideraciones de Escalabilidad y Mantenimiento'.
